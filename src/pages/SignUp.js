@@ -3,12 +3,14 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Main, Title, Button, LinkTexto, Form } from "../assets/styles"
 
-export default function Login() {
-    const navigate = useNavigate()
+export default function SignUp() {
     const [form, setForm] = useState({
+        name: "",
         email: "",
-        password: ""
+        password: "",
+        repeat_password: ""
     })
+    const navigate = useNavigate()
 
     function handleForm(e) {
         setForm({
@@ -20,9 +22,8 @@ export default function Login() {
     async function autenticar(e) {
         e.preventDefault()
         try {
-            const user = await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
-            console.log(user)
-            navigate("/boleto")
+            await axios.post(`${process.env.REACT_APP_API_URL}/sign-up`, form)
+            navigate("/")
         } catch (error) {
             alert(error.response.data)
         }
@@ -31,6 +32,14 @@ export default function Login() {
         <Main>
             <Title>E-Shirt</Title>
             <Form onSubmit={autenticar}>
+                <input
+                    required
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    onChange={handleForm}
+                    value={form.name}
+                />
                 <input
                     required
                     type="email"
@@ -47,9 +56,18 @@ export default function Login() {
                     onChange={handleForm}
                     value={form.password}
                 />
-                <Button type="submit">Entrar</Button>
+                <input
+                    required
+                    type="password"
+                    placeholder="Confirme a senha"
+                    name="repeat_password"
+                    onChange={handleForm}
+                    value={form.repeat_password}
+                />
+                <Button type="submit">Cadastrar</Button>
             </Form>
-            <LinkTexto>Não tem conta? <Link to={"/cadastro"}>Criar conta</Link></LinkTexto>
+            <LinkTexto>Já tem uma conta? <Link to={"/"}>Entre agora</Link></LinkTexto>
         </Main>
     )
 }
+
