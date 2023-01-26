@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { Button, LinkTexto, Pagamento } from "../../assets/styles"
 
+
 export default function Cartao() {
     return (
         <Pagamento>
