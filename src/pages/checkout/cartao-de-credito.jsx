@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { Button, Header, LinkTexto, Main, Form } from "../../assets/styles"
 
 
