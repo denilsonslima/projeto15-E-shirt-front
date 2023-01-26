@@ -132,5 +132,8 @@ export const Pagamento = styled(Main)`
             text-align: center;
             color: #158A8A;
         }
+        > img {
+            width: 150px;
+        }
     }
 `

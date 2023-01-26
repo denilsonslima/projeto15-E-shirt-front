@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { Button, LinkTexto, Pagamento } from "../../assets/styles"
+
 
 export default function Cartao() {
     return (
@@ -15,11 +15,11 @@ export default function Cartao() {
                 <div>
                     <label>
                         <p>Validade</p>
-                        <input type="text" placeholder="11/28" />
+                        <input type="text" placeholder="11/22" />
                     </label>
                     <label>
                         <p>CVV</p>
-                        <input type="text" placeholder="822" />
+                        <input type="text" placeholder="123" />
                     </label>
                 </div>
                 <label>
@@ -28,11 +28,11 @@ export default function Cartao() {
                 </label>
                 <label>
                     <p>CPF do titular</p>
-                    <input type="text" placeholder="401.104.990-50" />
+                    <input type="text" placeholder="123.456.789-10" />
                 </label>
             </Form>
             <Button>Confirmar</Button>
-            <LinkTexto>Em caso de dúvida clique <Link>aqui</Link></LinkTexto>
+            <LinkTexto>Em caso de dúvida clique <a href="https://www.google.com/" target="_blank" rel="noreferrer">aqui</a></LinkTexto>
         </Pagamento>
     )
 }
