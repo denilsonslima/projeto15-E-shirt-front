@@ -4,6 +4,7 @@ import Cartao from "./pages/checkout/cartao-de-credito";
 import Pix from "./pages/checkout/pix";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import ShoppingBag from "./pages/shoppingBag/shoppingBag.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}></Route>
         <Route path="/cadastro" element={<SignUp/>}></Route>
+        <Route path="/shoppingBag" element={<ShoppingBag/>}></Route>
         <Route path="/boleto" element={<Boleto/>}></Route>
         <Route path="/pix" element={<Pix/>}></Route>
         <Route path="/cartao-de-credito" element={<Cartao/>}></Route>
