@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { Button, LinkTexto, Pagamento } from "../../assets/styles"
 
 export default function Pix() {
@@ -12,7 +11,7 @@ export default function Pix() {
                 <p>Tipo CNPJ</p>
             </div>
             <Button>Copiar a chave</Button>
-            <LinkTexto>Em caso de dúvida clique <Link>aqui</Link></LinkTexto>
+            <LinkTexto>Em caso de dúvida clique <a href="https://www.google.com/" target="_blank" rel="noreferrer">aqui</a></LinkTexto>
         </Pagamento>
     )
 }

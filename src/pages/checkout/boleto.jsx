@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { Button, Button2, LinkTexto, Pagamento } from "../../assets/styles"
 
 export default function Boleto() {
@@ -13,7 +12,7 @@ export default function Boleto() {
             <Button>Copiar código</Button>
             <br />
             <Button2 onClick={() => alert("oi")}>Prosseguir </Button2>
-            <LinkTexto>Em caso de dúvida clique <Link>aqui</Link></LinkTexto>
+            <LinkTexto>Em caso de dúvida clique <a href="https://www.google.com/" target="_blank" rel="noreferrer">aqui</a></LinkTexto>
         </Pagamento>
     )
 }
