@@ -1,12 +1,15 @@
 import styled from "styled-components"
-import { Button, LinkTexto, Pagamento } from "../../assets/styles"
+import { Button, Header, LinkTexto, Main, Form } from "../../assets/styles"
 
 
 export default function Cartao() {
     return (
-        <Pagamento>
-            <h1>Pagamento</h1>
-            <h2>Cartão de crédito</h2>
+        <Main>
+            <Header>
+                <h2>Pagamento</h2>
+                <i class="uil uil-ellipsis-h"></i>
+            </Header>
+            <h3>Cartão de crédito</h3>
             <Form>
                 <label>
                     <p>Número do cartão</p>
@@ -33,39 +36,7 @@ export default function Cartao() {
             </Form>
             <Button>Confirmar</Button>
             <LinkTexto>Em caso de dúvida clique <a href="https://www.google.com/" target="_blank" rel="noreferrer">aqui</a></LinkTexto>
-        </Pagamento>
+        </Main>
     )
 }
 
-const Form = styled.form`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    margin-bottom: 65px;
-    input {
-        width: 100%;
-        background: #E6E6E6;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        height: 48px;
-        padding-left: 15px;
-    }
-    label p { 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 21px;
-        color: #158A8A;
-        margin-bottom: 3px;
-    }
-    > div {
-        display: flex;
-        justify-content: space-between;
-        label {
-            width: calc(50% - 12px/2);
-        }
-    }
-`

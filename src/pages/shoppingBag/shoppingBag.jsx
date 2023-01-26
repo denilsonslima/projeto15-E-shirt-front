@@ -1,4 +1,4 @@
-import { Main, Header, Bag, PurchaseSummary, Button } from "../../assets/styles";
+import { Main, Header, Bag, PurchaseSummary, Button, Title } from "../../assets/styles";
 import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
 
@@ -7,14 +7,14 @@ export default function ShoppingBag() {
     return (
         <Main>
             <Header>
-                <h1>Sacola de compras</h1>
+                <h2>Sacola de compras</h2>
                 <i class="uil uil-ellipsis-v"></i>
             </Header>
             <Bag>
                 apresentar com map os itens
             </Bag>
             <PurchaseSummary>
-                apresentar em letras pequenas valor total, valor de frete (se assim escolhido), desconto e o total.
+                <p>apresentar em letras pequenas valor total, valor de frete (se assim escolhido), desconto e o total.</p>
             </PurchaseSummary>
             <Button>IR PARA O PAGAMENTO</Button>
         </Main>

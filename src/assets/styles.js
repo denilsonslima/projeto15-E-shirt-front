@@ -7,7 +7,6 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -15,6 +14,43 @@ export const Main = styled.main`
     margin: 0 auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
+
+    h2 {
+        font-size: 22px;
+        line-height: 33px;
+        color: #158A8A;
+        width: 100%;
+    }
+    h3 {
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 8px;
+        font-size: 18px;
+        line-height: 27px;
+        color: #313131;
+    }
+    & p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: #A0A0A0;
+    }
+    .QR {
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h4 {
+            width: 200px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            color: #158A8A;
+        }
+        img {
+            width: 150px;
+        }
 `
 export const Header = styled.header`
     width: 100%;
@@ -45,6 +81,8 @@ export const Title = styled.h1`
 export const Button = styled.button`
     width: 100%;
     height: 46px;
+
+    margin: 8px 0 0 0;
 
     background: #158A8A;
     border-radius: 5px;
@@ -95,8 +133,9 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 30px;
-    > input {
+    gap: 13px;
+    margin-bottom: 22px;
+    >input {
         height: 35px;
         padding-left: 15px;
         border: none;
@@ -110,45 +149,31 @@ export const Form = styled.form`
             line-height: 21px;
             color: #9D9D9D;
         }
+        margin-bottom:17px
     }
-`
-
-export const Pagamento = styled(Main)`
-    > h1 {
-        font-size: 22px;
-        line-height: 33px;
-        color: #158A8A;
+    label input {
         width: 100%;
+        background: #E6E6E6;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        height: 48px;
+        padding-left: 15px;
     }
-    > h2 {
-        width: 100%;
-        margin-top: 40px;
-        margin-bottom: 8px;
-        font-size: 18px;
-        line-height: 27px;
-        color: #313131;
-    }
-    & p {
+    label p { 
+        font-family: 'Poppins';
+        font-style: normal;
         font-weight: 400;
-        font-size: 12px;
-        line-height: 18px;
-        color: #A0A0A0;
+        font-size: 14px;
+        line-height: 21px;
+        color: #158A8A;
+        margin-bottom: 3px;
     }
     > div {
-        height: 220px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        > h3 {
-            width: 200px;
-            font-size: 20px;
-            line-height: 30px;
-            text-align: center;
-            color: #158A8A;
-        }
-        > img {
-            width: 150px;
+        justify-content: space-between;
+        label {
+            width: calc(50% - 12px/2);
         }
     }
 `
