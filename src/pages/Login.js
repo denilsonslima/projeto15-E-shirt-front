@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Main, Title, Button, LinkTexto, Form } from "../assets/styles"
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 export default function Login() {
     const navigate = useNavigate()
@@ -9,6 +10,7 @@ export default function Login() {
         email: "",
         password: ""
     })
+    const [password, setPassword] = useState(false)
 
     function handleForm(e) {
         setForm({
@@ -39,14 +41,17 @@ export default function Login() {
                     onChange={handleForm}
                     value={form.email}
                 />
-                <input
-                    required
-                    type="password"
-                    placeholder="Senha"
-                    name="password"
-                    onChange={handleForm}
-                    value={form.password}
-                />
+                <div>
+                    <input
+                        required
+                        type={password ? "text" : "password"}
+                        placeholder="Senha"
+                        name="password"
+                        onChange={handleForm}
+                        value={form.password}
+                    />
+                    {password ?  <FaEye onClick={()=> setPassword(!password)}/> : <FaEyeSlash onClick={()=> setPassword(!password)}/>}
+                </div>
                 <Button type="submit">Entrar</Button>
             </Form>
             <LinkTexto>Não tem conta? <Link to={"/cadastro"}>Criar conta</Link></LinkTexto>

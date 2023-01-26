@@ -51,6 +51,7 @@ export const Main = styled.main`
         img {
             width: 150px;
         }
+    }
 `
 export const Header = styled.header`
     width: 100%;
@@ -135,7 +136,8 @@ export const Form = styled.form`
     width: 100%;
     gap: 13px;
     margin-bottom: 22px;
-    >input {
+    input {
+        width: 100%;
         height: 35px;
         padding-left: 15px;
         border: none;
@@ -151,6 +153,18 @@ export const Form = styled.form`
         }
         margin-bottom:17px
     }
+    div {
+        position: relative;
+        svg {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            color: #9D9D9D;
+        }
+    } 
+
     label input {
         width: 100%;
         background: #E6E6E6;
