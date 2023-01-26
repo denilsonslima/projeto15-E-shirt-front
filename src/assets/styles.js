@@ -16,6 +16,21 @@ export const Main = styled.main`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
 `
+export const Header = styled.header`
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top:0;
+    left:0;
+    `
+export const Bag = styled.div`
+    width: 100%;
+    `
+export const PurchaseSummary = styled.div`
+    
+    `
 
 export const Title = styled.h1`
     font-family: 'Prata';
