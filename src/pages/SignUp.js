@@ -38,7 +38,7 @@ export default function SignUp() {
     return (
         <Main2>
             <Title src={logo} alt="logo"/>
-            <Form onSubmit={autenticar}>
+            <Form onSubmit={autenticar} gap="15px">
                 <input
                     required
                     type="text"
@@ -71,7 +71,7 @@ export default function SignUp() {
                     onChange={handleForm}
                     value={form.repeat_password}
                 />
-                <Button type="submit">
+                <Button type="submit" margin="25px">
                     {!load ? 
                     <div>Cadastrar</div> 
                     : 

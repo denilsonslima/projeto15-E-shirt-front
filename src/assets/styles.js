@@ -62,7 +62,8 @@ export const Main2 = styled(Main)`
     left: 50%;
     transform: translate(-50%, -50%);
     @media(max-width: 500px){
-        min-height: 100vh;
+        max-height: 100vh;
+        height: 100%;
     }
 `
 
@@ -93,7 +94,7 @@ export const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 8px 0 0 0;
+    margin-top: ${props => props.margin ? "25px" : "40px"};
 
     background: #158A8A;
     border-radius: 5px;
@@ -116,6 +117,7 @@ export const Button2 = styled(Button)`
     background-color: #FFFFFF;
     border: 2px solid #158A8A;
     color: #158A8A;
+    margin-top: 15px;
     :hover {
         background: transparent;
     }
@@ -144,8 +146,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 13px;
-    margin-bottom: 22px;
+    gap: ${props => props.gap ? "15px" : "13px"};
     input {
         width: 100%;
         height: 35px;
@@ -161,7 +162,6 @@ export const Form = styled.form`
             line-height: 21px;
             color: #9D9D9D;
         }
-        margin-bottom:17px
     }
     > div {
         position: relative;

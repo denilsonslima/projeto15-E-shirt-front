@@ -38,7 +38,7 @@ export default function Login() {
     return (
         <Main2>
             <Title src={logo} alt="logo"/>
-            <Form onSubmit={autenticar}>
+            <Form onSubmit={autenticar} gap="15px">
                 <input
                     required
                     type="email"
@@ -58,7 +58,7 @@ export default function Login() {
                     />
                     {password ?  <FaEye onClick={()=> setPassword(!password)}/> : <FaEyeSlash onClick={()=> setPassword(!password)}/>}
                 </div>
-                <Button type="submit">
+                <Button type="submit" margin="25px">
                     {!load ? 
                     <div>Entrar</div> 
                     : 
