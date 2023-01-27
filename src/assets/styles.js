@@ -4,6 +4,7 @@ export const Main = styled.main`
     max-width: 480px;
     width: 100%;
     min-height: 100vh;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,6 +54,18 @@ export const Main = styled.main`
         }
     }
 `
+export const Main2 = styled(Main)`
+    justify-content: center;
+    min-height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media(max-width: 500px){
+        min-height: 100vh;
+    }
+`
+
 export const Header = styled.header`
     width: 100%;
     height: 60px;
@@ -69,20 +82,17 @@ export const PurchaseSummary = styled.div`
     
     `
 
-export const Title = styled.h1`
-    font-family: 'Prata';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 82px;
-    color: #000000;
+export const Title = styled.img`
+    width: 175px;
     margin-bottom: 30px;
 `
 
 export const Button = styled.button`
     width: 100%;
     height: 46px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 8px 0 0 0;
 
     background: #158A8A;
@@ -95,7 +105,7 @@ export const Button = styled.button`
     font-size: 14px;
     line-height: 21px;
     color: #F3F3F3;
-    outline-color: #A328D6;
+    outline: none;
     cursor: pointer;
     :hover {
         background: #179b9b;
@@ -153,9 +163,9 @@ export const Form = styled.form`
         }
         margin-bottom:17px
     }
-    div {
+    > div {
         position: relative;
-        svg {
+        > svg {
             position: absolute;
             right: 15px;
             top: 10px;
@@ -164,7 +174,6 @@ export const Form = styled.form`
             color: #9D9D9D;
         }
     } 
-
     label input {
         width: 100%;
         background: #E6E6E6;

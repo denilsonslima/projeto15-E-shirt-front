@@ -1,8 +1,10 @@
 import axios from "axios"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Main, Title, Button, LinkTexto, Form } from "../assets/styles"
+import { Main2, Title, Button, LinkTexto, Form } from "../assets/styles"
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { RotatingLines } from 'react-loader-spinner'
+import logo from "../assets/img/logo.png"
 
 export default function Login() {
     const navigate = useNavigate()
@@ -11,6 +13,7 @@ export default function Login() {
         password: ""
     })
     const [password, setPassword] = useState(false)
+    const [load, setLoad] = useState(false)
 
     function handleForm(e) {
         setForm({
@@ -22,16 +25,19 @@ export default function Login() {
     async function autenticar(e) {
         e.preventDefault()
         try {
-            const user = await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
-            console.log(user)
-            navigate("/boleto")
+            setLoad(true)
+            await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
+            setTimeout(() => {
+                navigate("/boleto")
+            }, 500);
         } catch (error) {
             alert(error.response.data)
+            setLoad(false)
         }
     }
     return (
-        <Main>
-            <Title>E-Shirt</Title>
+        <Main2>
+            <Title src={logo} alt="logo"/>
             <Form onSubmit={autenticar}>
                 <input
                     required
@@ -52,9 +58,21 @@ export default function Login() {
                     />
                     {password ?  <FaEye onClick={()=> setPassword(!password)}/> : <FaEyeSlash onClick={()=> setPassword(!password)}/>}
                 </div>
-                <Button type="submit">Entrar</Button>
+                <Button type="submit">
+                    {!load ? 
+                    <div>Entrar</div> 
+                    : 
+                    <RotatingLines
+                        strokeColor="white"
+                        strokeWidth="5"
+                        animationDuration="0.75"
+                        width="30"
+                        visible={true}
+                    />  
+                    }
+                </Button>
             </Form>
             <LinkTexto>Não tem conta? <Link to={"/cadastro"}>Criar conta</Link></LinkTexto>
-        </Main>
+        </Main2>
     )
 }
