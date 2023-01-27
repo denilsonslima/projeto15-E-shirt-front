@@ -9,8 +9,12 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ShoppingBag from "./pages/shoppingBag/shoppingBag.jsx";
 import Qrcode from "./pages/checkout/qr-code";
+import Home from './pages/home-product/Home.js'
+import Product from './pages/home-product/Product.js'
 
 function App() {
+  const [imgShirt, setImgShirt] = useState('');
+  const [shirtPrice, setShirtPrice] = useState('');
   const [carrinhoTeste, setCarrinhoTeste] = useState([
     {
       product: "Camisa Igor",
@@ -57,6 +61,20 @@ function App() {
             <Route path="/pix" element={<Pix />}></Route>
             <Route path="/cartao-de-credito" element={<Cartao />}></Route>
             <Route path="/qr-code" element={<Qrcode />}></Route>
+
+            <Route path = '/home' element = {
+              <Home 
+                setImgShirt = {setImgShirt} 
+                setShirtPrice = {setShirtPrice}
+              />} 
+            />
+
+            <Route path = '/product/:idShirt' element = {
+              <Product 
+                imgShirt = {imgShirt} 
+                shirtPrice = {shirtPrice}
+              />} 
+            />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
