@@ -3,9 +3,11 @@ import Item from "../../components/item/Item";
 
 import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
+import { useNavigate } from "react-router-dom";
 
 export default function ShoppingBag() {
     const { carrinhoTeste, setCarrinhoTeste } = useContext(UserContext)
+    const navigate = useNavigate()
     return (
         <Main>
             <Header>
@@ -23,7 +25,7 @@ export default function ShoppingBag() {
             <PurchaseSummary>
                 <p>apresentar em letras pequenas valor total, valor de frete (se assim escolhido), desconto e o total.</p>
             </PurchaseSummary>
-            <Button>IR PARA O PAGAMENTO</Button>
+            <Button onClick={() => navigate("/payment")}>IR PARA O PAGAMENTO</Button>
         </Main>
     )
 }

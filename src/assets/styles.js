@@ -24,7 +24,7 @@ export const Main = styled.main`
     }
     h3 {
         width: 100%;
-        margin-top: 40px;
+        margin-top: 10px;
         margin-bottom: 8px;
         font-size: 18px;
         line-height: 27px;

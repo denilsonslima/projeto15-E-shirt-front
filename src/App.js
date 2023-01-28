@@ -11,6 +11,7 @@ import ShoppingBag from "./pages/shoppingBag/shoppingBag.jsx";
 import Qrcode from "./pages/checkout/qr-code";
 import Home from './pages/home-product/Home.js'
 import Product from './pages/home-product/Product.js'
+import Payment from "./pages/shoppingBag/payment";
 
 function App() {
   const [imgShirt, setImgShirt] = useState('');
@@ -61,7 +62,8 @@ function App() {
             <Route path="/pix" element={<Pix />}></Route>
             <Route path="/cartao-de-credito" element={<Cartao />}></Route>
             <Route path="/qr-code" element={<Qrcode />}></Route>
-
+            <Route path="/payment" element={<Payment/>}></Route>
+            
             <Route path = '/home' element = {
               <Home 
                 setImgShirt = {setImgShirt} 
