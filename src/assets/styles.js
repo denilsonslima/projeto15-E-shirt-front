@@ -54,6 +54,7 @@ export const Main = styled.main`
         }
     }
 `
+
 export const Main2 = styled(Main)`
     justify-content: center;
     min-height: 600px;
@@ -73,15 +74,18 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
     top:0;
     left:0;
-    `
+`
+
 export const Bag = styled.div`
     width: 100%;
-    `
+`
+
 export const PurchaseSummary = styled.div`
     
-    `
+`
 
 export const Title = styled.img`
     width: 175px;

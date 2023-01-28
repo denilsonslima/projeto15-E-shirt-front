@@ -5,7 +5,7 @@ import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
 
 export default function ShoppingBag() {
-    const {carrinhoTeste, setCarrinhoTeste}= useContext(UserContext)
+    const { carrinhoTeste, setCarrinhoTeste } = useContext(UserContext)
     return (
         <Main>
             <Header>
@@ -13,11 +13,11 @@ export default function ShoppingBag() {
                 <i className="uil uil-ellipsis-v"></i>
             </Header>
             <Bag>
-                {carrinhoTeste.map((p)=><Item 
-                key={p.product}
-                p={p} 
-                setCarrinhoTeste={setCarrinhoTeste}
-                carrinhoTeste={carrinhoTeste}
+                {carrinhoTeste.map((p) => <Item
+                    key={p.product}
+                    p={p}
+                    setCarrinhoTeste={setCarrinhoTeste}
+                    carrinhoTeste={carrinhoTeste}
                 ></Item>)}
             </Bag>
             <PurchaseSummary>

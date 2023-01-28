@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export default function Item({ p,setCarrinhoTeste }) {
+export default function Item({ p, setCarrinhoTeste }) {
     const installments = (p.price / 10) + (p.price * 0.15);
-    function calcAmount(value){
-        if(value === "sum"){
-            setCarrinhoTeste({...p,amount: p.amount+1})
+    function calcAmount(value) {
+        if (value === "sum") {
+            setCarrinhoTeste({ ...p, amount: p.amount + 1 })
         }
-        else{
-            setCarrinhoTeste({...p,amount: p.amount-1})
+        else {
+            setCarrinhoTeste({ ...p, amount: p.amount - 1 })
         }
     }
     return (
@@ -24,9 +24,9 @@ export default function Item({ p,setCarrinhoTeste }) {
                 <div className="theAmount">
                     <div><p>Quantidade</p></div>
                     <div>
-                        <button onClick={()=>calcAmount("minus")}><i className="uil uil-minus"></i></button>
+                        <button onClick={() => calcAmount("minus")}><i className="uil uil-minus"></i></button>
                         <div>{p.amount}</div>
-                        <button onClick={()=>calcAmount("sum")}><i className="uil uil-plus"></i></button>
+                        <button onClick={() => calcAmount("sum")}><i className="uil uil-plus"></i></button>
                     </div>
                 </div>
                 <div className="Icon"><i class="uil uil-multiply"></i></div>
@@ -40,9 +40,9 @@ const Product = styled.div`
     height: 100px;
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 5px 0 15px;
     border-bottom: 1px solid rgb(0, 0, 0, 40%);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     position: relative;
     img{
         height: 100%;
@@ -54,7 +54,8 @@ const Product = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding-left: 10px;
+        padding-left: 15px;
+        width: 100%;
         >div div{display:flex;align-items:end;}
         h4{
             font-size: 18px;
