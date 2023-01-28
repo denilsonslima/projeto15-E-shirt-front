@@ -42,7 +42,7 @@ const Container = styled.div`
 
     @media (max-width: 326px){
         img {
-            width: 125px;
+            width: calc(50% - 12px);
         }
     }
 `
