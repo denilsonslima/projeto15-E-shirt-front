@@ -39,4 +39,10 @@ const Container = styled.div`
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
         }
     }
+
+    @media (max-width: 326px){
+        img {
+            width: 125px;
+        }
+    }
 `

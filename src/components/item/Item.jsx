@@ -17,7 +17,7 @@ export default function Item({ p, setCarrinhoTeste }) {
                 <div className="description">
                     <h4>{p.product}</h4>
                     <div>
-                        <div><h5>R${p.price}</h5><h6>à vista</h6></div>
+                        <div><h5>R${p.price} <span>à vista</span></h5></div>
                         <p>10x de R$ {installments.toFixed(2)}</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ export default function Item({ p, setCarrinhoTeste }) {
 
 const Product = styled.div`
     width: 100%;
-    height: 100px;
+    height: auto;
     display: flex;
     justify-content: space-between;
     padding: 5px 0 15px;
@@ -45,7 +45,8 @@ const Product = styled.div`
     margin-bottom: 20px;
     position: relative;
     img{
-        height: 100%;
+        width: 79px;
+        height: 69px;
     }
     p{
         font-size: 10px;
@@ -61,14 +62,15 @@ const Product = styled.div`
             font-size: 18px;
             font-weight: 600;
             color: #313131;
+            margin-bottom: 10px;
         }
         h5{
             font-size: 16px;
             font-weight: 400;
-        }
-        h6{
-            font-size: 12px;
-            font-weight:400;
+            span {
+                font-size: 12px;
+                font-weight:400;
+            }
         }
     }
     .theAmount{
@@ -103,8 +105,12 @@ const Product = styled.div`
     }
     .Icon{
         position: absolute;
+        padding: 10px 0;
         top: 0;
         right:0;
-        color:rgb(0, 0, 0, 40%);
+        color:rgb(0, 0, 0, 10%);
+        :hover {
+            color:rgb(0, 0, 0, 40%);
+        }
     }
 `
