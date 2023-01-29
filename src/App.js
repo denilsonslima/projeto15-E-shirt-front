@@ -22,32 +22,28 @@ function App() {
       type: "sport",
       number: true,
       price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png",
-      amount: 0
+      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
     },
     {
       product: "Camisa corintians Igor",
       type: "sport",
       number: true,
       price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png",
-      amount: 0
+      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
     },
     {
       product: "Camisa mengo Igor",
       type: "sport",
       number: true,
       price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png",
-      amount: 0
+      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
     },
     {
       product: "Camisa Fla Igor",
       type: "sport",
       number: true,
       price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png",
-      amount: 0
+      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
     }
   ])
   return (
