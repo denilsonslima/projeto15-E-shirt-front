@@ -39,7 +39,7 @@ export default function Home(props){
     };
 
     return(
-        <Main>
+        <Main width="800">
             <Header>
                 <Search>
                     {!findTeam ? <SlMenu/> : <SlArrowRight onClick = {backShowCase} findTeam = {findTeam}/>}
@@ -221,7 +221,6 @@ const ShirtBox = styled.div`
     > img{
         width: 100%;
         height: 117px;
-        margin-bottom: 15px;
         border-radius: 11px;
     }
     > p{
