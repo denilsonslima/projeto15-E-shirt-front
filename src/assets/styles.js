@@ -15,6 +15,7 @@ export const Main = styled.main`
     margin: 0 auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
+    position: relative;
 
     h2 {
         font-size: 22px;

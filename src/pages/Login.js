@@ -28,7 +28,7 @@ export default function Login() {
             setLoad(true)
             await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
             setTimeout(() => {
-                navigate("/boleto")
+                navigate("/home")
             }, 500);
         } catch (error) {
             alert(error.response.data)
