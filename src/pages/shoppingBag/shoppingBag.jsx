@@ -6,7 +6,7 @@ import UserContext from "../../context/valoresGlobais";
 import { useNavigate } from "react-router-dom";
 
 export default function ShoppingBag() {
-    const { carrinhoTeste, setCarrinhoTeste } = useContext(UserContext)
+    const { carrinhoTeste } = useContext(UserContext)
     const navigate = useNavigate()
     return (
         <Main>
@@ -18,8 +18,6 @@ export default function ShoppingBag() {
                 {carrinhoTeste.map((p) => <Item
                     key={p.product}
                     p={p}
-                    setCarrinhoTeste={setCarrinhoTeste}
-                    carrinhoTeste={carrinhoTeste}
                 ></Item>)}
             </Bag>
             <PurchaseSummary>
