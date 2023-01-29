@@ -3,14 +3,23 @@ import { teams, showCase, teamShirt } from './constants/teams.js';
 import styled from 'styled-components';
 import iconSearch from '../../assets/img/iconSearch.jpg';
 import back from '../../assets/img/back.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function Home(props){
     const [team, setTeam] = useState('');
     const [findTeam, setFindTeam] = useState(false);
     const [filteredItems, setFilteredItems] = useState([]);
     const { setImgShirt, setShirtPrice } = props;
+
+    const [showList, setShowList] = useState([]);
+
+    useEffect(() => {
+        const promise = axios.get("http://localhost:5000/showCase");
+        promise.then(answer => setShowList(answer.data));
+        promise.catch(error => alert(`${error.response.data.message}`));
+    }, []);
 
     function verifyTeam(){;
         if(team.length === 0){
@@ -57,7 +66,7 @@ export default function Home(props){
                 </Header>
 
                 <ShirtsContent findTeam = {findTeam}>
-                    {showCase.map(shirt =>
+                    {showList.map(shirt =>
                         <Link to={`/product/${shirt.id}`} key={shirt.id}>
                             <ShirtBox>
                                 <img src = {shirt.shirt} alt = "shirt" onClick = {() => saveDataShirt(shirt.shirt, shirt.price)}/>
