@@ -76,7 +76,7 @@ export default function Home(){
                     <FiShoppingBag onClick={() => navigate("/shoppingBag")}/>
                 </div>
                 <ShirtsContent findTeam = {findTeam}>
-                    {dados.slice(0, 6).map(e =>
+                    {dados.map(e =>
                         <Link to={`/product/${e.idUser}`} key={e._id}>
                             <ShirtBox>
                                 <img src = {e.url} alt = "shirt" onClick = {() => saveDataShirt(e.url, e.valor)}/>
