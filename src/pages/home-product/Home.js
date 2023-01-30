@@ -64,7 +64,7 @@ export default function Home(){
                             onChange = {e => setTeam(e.target.value)}
                             required
                         />
-                        <SlMagnifier onClick={verifyTeam}/>
+                        <SlMagnifier onClick={() => alert("teste 1 2 3")}/>
                     </div>
                 </Search>
                 <Titulo>E-shirt</Titulo>
