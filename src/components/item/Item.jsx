@@ -25,7 +25,7 @@ export default function Item({ p }) {
                     <div><p>Quantidade</p></div>
                     <div>
                         <button onClick={() => {calcAmount("sum")}}><i className="uil uil-minus"></i></button>
-                        <div>{}</div>
+                        <div>{1}</div>
                         <button onClick={() => {calcAmount("min")}}><i className="uil uil-plus"></i></button>
                     </div>
                 </div>

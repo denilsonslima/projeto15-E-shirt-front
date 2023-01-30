@@ -12,8 +12,7 @@ import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
 export default function Home(){
     const [team, setTeam] = useState('');
-    
-    const [findTeam, setFindTeam] = useState(false);
+    const navigate = useNavigate();    const [findTeam, setFindTeam] = useState(false);
     const [filteredItems, setFilteredItems] = useState([]);
     const { setImgShirt, setShirtPrice, user, dados, setDados } = useContext(UserContext);
     useEffect(() => {
