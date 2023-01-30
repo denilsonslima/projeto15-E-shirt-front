@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    max-width: 480px;
+    max-width: ${props => props.width ? "600px" : "500px"};
     width: 100%;
     min-height: 100vh;
     background-color: #fff;
@@ -15,6 +15,7 @@ export const Main = styled.main`
     margin: 0 auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
+    position: relative;
 
     h2 {
         font-size: 22px;
@@ -74,7 +75,7 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     top:0;
     left:0;
 `

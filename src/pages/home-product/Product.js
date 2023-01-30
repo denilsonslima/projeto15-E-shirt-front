@@ -1,119 +1,121 @@
-import { Main, Content } from './constants/styled.js';
 import styled from 'styled-components';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 //import { useParams } from "react-router-dom";
 import UserContext from '../../context/valoresGlobais.jsx';
 
 export default function Product(){
     const [size, setSize] = useState('');
+    const navigate = useNavigate();
     //const { idShirt } = useParams();
-    const { imgShirt, shirtPrice } = useContext(UserContext);
-    console.log(imgShirt)
-    console.log(shirtPrice)
+    const { imgShirt, shirtPrice } = props;
 
+    function purchase(){
+        setCarrinhoTeste([dados.find((t)=> t.url === imgShirt)])
+        navigate("/payment")
+    }
+    function addShoppBag(){
+        setCarrinhoTeste([...carrinhoTeste, dados.find((t)=> t.url === imgShirt)])
+        navigate("/home")
+    }
     return(
         <Main>
+            <Header>
+                <ShirtImg src = {imgShirt} />
+            </Header>
 
-            <Content>
+            <InfoBox>
+                <div>
+                    <h3>Cadeira vitalis</h3>
+                    <span>Sharps moveis</span>
+                    <h3>{shirtPrice} <span>à vista</span></h3>
+                </div>
+                <SizeBox>
+                    <p>Tamanho:</p>
+                    <ChooseSize 
+                        id = "size" 
+                        name = "size" 
+                        value = {size} 
+                        onChange = {e => setSize(e.target.value)}
+                    >
+                        <option>P</option>
+                        <option>M</option>
+                        <option>G</option>
+                    </ChooseSize>
+                </SizeBox>
 
-                <Header>
-                    <ShirtImg src = {imgShirt} />
-                </Header>
+            </InfoBox>
 
-                <InfoBox>
-                    <p>R$ {shirtPrice}</p>
-                    <SizeBox>
-                        <p>Tamanho:</p>
-                        <ChooseSize 
-                            id = "size" 
-                            name = "size" 
-                            value = {size} 
-                            onChange = {e => setSize(e.target.value)}
-                        >
-                            <option>P</option>
-                            <option>M</option>
-                            <option>G</option>
-                        </ChooseSize>
-                    </SizeBox>
-
-                </InfoBox>
-
-                <BuyBox>
-                    <button>Comprar</button>
-                    <button>Adicionar ao carrinho</button>
-                </BuyBox>
-
-            </Content>
-
+            <Button onClick={() => purchase()}>Comprar</Button>
+            <Button2 onClick={()=> addShoppBag()}>Adicionar a sacola</Button2>
         </Main>
     );
 }
 
 const Header = styled.header`
     width: 100%;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
-    margin-top: -100px;
 `;
 
 const ShirtImg = styled.img`
-    width: 90%;
-    height: auto;
+    height: 100%;
     border-radius: 10px;
 `;
 
 const InfoBox = styled.div`
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-        p{
-            font-family: 'Raleway', sans-serif;
-            font-weight: 700;
-            font-size: 30px;
-            line-height: 27px;
-            margin-left: 26px;
-            margin-bottom: 20px;
+    justify-content: space-between;
+    > div {
+        > h3 {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+        color: #313131;
+        margin: 0;
+        height: 21px;
+        > span {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 21px;
+            color: #313131;
         }
+    }
+    > span {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 18px;
+        color: #313131;
+    }
+    }
 `;
 
 const SizeBox = styled.div`
-    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 10px;
+    p {
+        font-size: 13px;
+    }
 `;
 
 const ChooseSize = styled.select`
-    width: 80px;
-    height: auto;
-    padding: 7px;
+    width: 43px;
+    height: 25px;
+    padding: 2px;
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
-    font-size: 16px;
-    margin-left: 12px;
-    margin-bottom: 12px;
+    font-size: 14px;
+    margin-left: 10px;
     border-radius: 3px;
-`;
-
-const BuyBox = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-        button{
-            width: 322px;
-            height: 43px;
-            border-radius: 5px;
-            border: none;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
 `;
