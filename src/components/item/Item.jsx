@@ -3,9 +3,15 @@ import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
 
 export default function Item({ p }) {
-    const {  } = useContext(UserContext)
+    const { carrinhoTeste, setCarrinhoTeste } = useContext(UserContext)
     const installments = (p.price / 10) + (p.price * 0.15);
-    let amount =1;
+    function calcAmount(amount) {
+        const alt = carrinhoTeste.find(p.name)
+        const eu = {...alt, amount}
+        const del = carrinhoTeste.delet(alt)
+        if(amount === "sum"){}
+        else{}
+    }
     return (
         <li>
             <Product>
@@ -20,9 +26,9 @@ export default function Item({ p }) {
                 <div className="theAmount">
                     <div><p>Quantidade</p></div>
                     <div>
-                        <button onClick={() => {}}><i className="uil uil-minus"></i></button>
-                        <div>{amount}</div>
-                        <button onClick={() => {}}><i className="uil uil-plus"></i></button>
+                        <button onClick={() => {calcAmount("sum")}}><i className="uil uil-minus"></i></button>
+                        <div>{}</div>
+                        <button onClick={() => {calcAmount("min")}}><i className="uil uil-plus"></i></button>
                     </div>
                 </div>
                 <div className="Icon"><i class="uil uil-multiply"></i></div>

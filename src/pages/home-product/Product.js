@@ -7,6 +7,7 @@ import UserContext from '../../context/valoresGlobais.jsx';
 
 export default function Product(){
     const [size, setSize] = useState('');
+    const navigate = useNavigate();
     //const { idShirt } = useParams();
     const { imgShirt, shirtPrice } = useContext(UserContext);
 

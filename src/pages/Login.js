@@ -34,7 +34,7 @@ export default function Login() {
                 navigate("/home");
             }, 500);
         } catch (error) {
-            console.log(error)
+            alert(error.response.data)
             setLoad(false)
         }
     }
