@@ -7,13 +7,14 @@ import { Main } from '../../assets/styles.js';
 import { SlMagnifier, SlMenu, SlArrowRight } from "react-icons/sl";
 import axios from 'axios';
 
-export default function Home(props){
+import { useContext } from "react";
+import UserContext from "../../context/valoresGlobais";
+export default function Home(){
     const [team, setTeam] = useState('');
     const [dados, setDados] = useState([])
     const [findTeam, setFindTeam] = useState(false);
     const [filteredItems, setFilteredItems] = useState([]);
-    const { setImgShirt, setShirtPrice, token } = props;
-
+    const { setImgShirt, setShirtPrice } = useContext(UserContext);
     useEffect(() => {
         const dados = async () => {
             const url = `${process.env.REACT_APP_API_URL}/product`
@@ -23,7 +24,7 @@ export default function Home(props){
         dados()
 
     }, [token])
-
+    
     function verifyTeam(){;
         if(team.length === 0){
             return alert("Pesquise um time ou seleção.");

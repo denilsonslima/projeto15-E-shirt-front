@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import { Button, Button2, Main } from '../../assets/styles.js';
 import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
 //import { useParams } from "react-router-dom";
+import UserContext from '../../context/valoresGlobais.jsx';
 
-export default function Product(props){
+export default function Product(){
     const [size, setSize] = useState('');
     //const { idShirt } = useParams();
-    const { imgShirt, shirtPrice } = props;
-    const navigate = useNavigate()
+    const { imgShirt, shirtPrice } = useContext(UserContext);
 
     return(
         <Main>
