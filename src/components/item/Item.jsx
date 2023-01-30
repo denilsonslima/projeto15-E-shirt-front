@@ -4,13 +4,9 @@ import UserContext from "../../context/valoresGlobais";
 
 export default function Item({ p, setCarrinhoTeste }) {
     const installments = (p.price / 10) + (p.price * 0.15);
-    function calcAmount(value) {
-        if (value === "sum") {
-            setCarrinhoTeste({ ...p, amount: p.amount + 1 })
-        }
-        else {
-            setCarrinhoTeste({ ...p, amount: p.amount - 1 })
-        }
+    function calcAmount(amount) {
+        if(amount === "sum"){}
+        else{}
     }
     return (
         <li>
