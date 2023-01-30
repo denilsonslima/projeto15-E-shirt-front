@@ -6,9 +6,6 @@ export default function Item({ p }) {
     const { carrinhoTeste, setCarrinhoTeste } = useContext(UserContext)
     const installments = (p.price / 10) + (p.price * 0.15);
     function calcAmount(amount) {
-        const alt = carrinhoTeste.find(p.name)
-        const eu = {...alt, amount}
-        const del = carrinhoTeste.delet(alt)
         if(amount === "sum"){}
         else{}
     }
