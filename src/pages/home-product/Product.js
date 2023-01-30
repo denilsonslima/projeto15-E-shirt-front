@@ -29,7 +29,7 @@ export default function Product(){
                 <div>
                     <h3>Cadeira vitalis</h3>
                     <span>Sharps moveis</span>
-                    <h3>{shirtPrice} <span>à vista</span></h3>
+                    <h3>R$ {shirtPrice} <span>à vista</span></h3>
                 </div>
                 <SizeBox>
                     <p>Tamanho:</p>
