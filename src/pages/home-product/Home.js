@@ -19,7 +19,6 @@ export default function Home(props){
             const url = `${process.env.REACT_APP_API_URL}/product`
             const dados = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } })
             setDados([...dados.data])
-            console.log(dados)
         }
         dados()
 
@@ -74,12 +73,12 @@ export default function Home(props){
                     <span>Os melhores preços</span>
                 </div>
                 <ShirtsContent findTeam = {findTeam}>
-                    {dados.map(shirt =>
-                        <Link to={`/product`} key={1}>
+                    {dados.slice(0, 6).map(e =>
+                        <Link to={`/product/${e.idUser}`} key={e._id}>
                             <ShirtBox>
-                                <img src = "#" alt = "shirt" />
-                                <h3>Camisa</h3>
-                                <p>{50}</p>
+                                <img src = {e.url} alt = "shirt" onClick = {() => saveDataShirt(e.url, e.valor)}/>
+                                <h3>{e.name}</h3>
+                                <p>R$ {e.valor}</p>
                                 <span>10x de R$ 250</span>
                             </ShirtBox>
                         </Link>
@@ -88,10 +87,12 @@ export default function Home(props){
 
                 <FindTeamContent findTeam = {findTeam}>
                     {filteredItems.map(t => 
-                        <Link to={`/product/${t.id}`} key={t.id}>
+                        <Link to={`/product/${t.idUser}`} key={t.idUser}>
                             <ShirtBox>
-                                <img src = {t.shirt} alt = "shirt" onClick = {() => saveDataShirt(t.shirt, t.price)}/>
-                                <p>{t.price}</p>
+                                <img src = {t.url} alt = "shirt" onClick = {() => saveDataShirt(t.url, t.valor)}/>
+                                <h3>{t.name}</h3>
+                                <p>R$ {t.valor}</p>
+                                <span>10x de R$ 250</span>
                             </ShirtBox>
                         </Link>
                     )}
