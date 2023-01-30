@@ -8,6 +8,7 @@ import axios from "axios";
 export default function ShoppingBag() {
     
     const { carrinhoTeste, user } = useContext(UserContext);
+    console.log(carrinhoTeste)
     const navigate = useNavigate();
     async function purchase(){
         try {

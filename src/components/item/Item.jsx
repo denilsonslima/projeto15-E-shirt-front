@@ -3,6 +3,7 @@ import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
 
 export default function Item({ p }) {
+    console.log(p)
     const { carrinhoTeste, setCarrinhoTeste } = useContext(UserContext)
     const installments = (p.price / 10) + (p.price * 0.15);
     function calcAmount(amount) {
@@ -12,11 +13,11 @@ export default function Item({ p }) {
     return (
         <li>
             <Product>
-                <div><img src={p.image} alt="" /></div>
+                <div><img src={p.url} alt="" /></div>
                 <div className="description">
                     <h4>{p.product}</h4>
                     <div>
-                        <div><h5>R${p.price} <span>à vista</span></h5></div>
+                        <div><h5>R${p.valor} <span>à vista</span></h5></div>
                         <p>10x de R$ {installments.toFixed(2)}</p>
                     </div>
                 </div>
