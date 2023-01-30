@@ -18,15 +18,8 @@ function App() {
   const [dados, setDados] = useState([]);
   const [imgShirt, setImgShirt] = useState('');
   const [shirtPrice, setShirtPrice] = useState('');
-  const [carrinhoTeste, setCarrinhoTeste] = useState([
-    {
-      product: "Camisa Igor",
-      type: "sport",
-      number: true,
-      price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
-    }
-  ]);
+  const [carrinhoTeste, setCarrinhoTeste] = useState([]);
+  console.log(carrinhoTeste)
   return (
     <div className="App">
       <UserContext.Provider value={{ 

@@ -9,8 +9,16 @@ export default function Product(){
     const [size, setSize] = useState('');
     const navigate = useNavigate();
     //const { idShirt } = useParams();
-    const { imgShirt, shirtPrice } = useContext(UserContext);
+    const { imgShirt, shirtPrice, carrinhoTeste, setCarrinhoTeste, dados } = useContext(UserContext);
 
+    function purchase(){
+        setCarrinhoTeste([dados.find((t)=> t.url === imgShirt)])
+        navigate("/payment")
+    }
+    function addShoppBag(){
+        setCarrinhoTeste([...carrinhoTeste, dados.find((t)=> t.url === imgShirt)])
+        navigate("/home")
+    }
     return(
         <Main>
             <Header>
@@ -39,8 +47,8 @@ export default function Product(){
 
             </InfoBox>
 
-            <Button onClick={() => navigate("/payment")}>Comprar</Button>
-            <Button2>Adicionar a sacola</Button2>
+            <Button onClick={() => purchase()}>Comprar</Button>
+            <Button2 onClick={()=> addShoppBag()}>Adicionar a sacola</Button2>
         </Main>
     );
 }
