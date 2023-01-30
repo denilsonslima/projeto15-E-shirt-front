@@ -2,10 +2,11 @@ import { Header } from './constants/styled.js';
 import { teams, teamShirt } from './constants/teams.js';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Main } from '../../assets/styles.js';
 import { SlMagnifier, SlMenu, SlArrowRight } from "react-icons/sl";
 import axios from 'axios';
+import { FiShoppingBag } from "react-icons/fi";
 
 import { useContext } from "react";
 import UserContext from "../../context/valoresGlobais";
@@ -73,6 +74,7 @@ export default function Home(){
                 <div>
                     <h2>Ofertas especiais</h2>
                     <span>Os melhores preços</span>
+                    <FiShoppingBag onClick={() => navigate("/shoppingBag")}/>
                 </div>
                 <ShirtsContent findTeam = {findTeam}>
                     {dados.slice(0, 6).map(e =>
@@ -161,7 +163,9 @@ const Titulo = styled.h1`
 
 const Section = styled.section`
     margin-top: 240px;
+    width: 100%;
     > div {
+        position: relative;
         margin-bottom: 15px;
         margin-top: 9px;
         > h2 {
@@ -181,6 +185,13 @@ const Section = styled.section`
             font-style: normal;
             color: #313131;
             height: 14px;
+        }
+        > svg {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     }
 `
