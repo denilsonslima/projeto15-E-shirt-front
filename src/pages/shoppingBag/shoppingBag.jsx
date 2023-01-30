@@ -15,10 +15,7 @@ export default function ShoppingBag() {
                 <i className="uil uil-ellipsis-v"></i>
             </Header>
             <Bag>
-                {carrinhoTeste.map((p) => <Item
-                    key={p.product}
-                    p={p}
-                ></Item>)}
+                {carrinhoTeste.map((p) => <Item key={p.product}p={p}></Item>)}
             </Bag>
             <PurchaseSummary>
                 <p>apresentar em letras pequenas valor total, valor de frete (se assim escolhido), desconto e o total.</p>

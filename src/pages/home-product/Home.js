@@ -6,11 +6,13 @@ import back from '../../assets/img/back.png';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-export default function Home(props){
+import { useContext } from "react";
+import UserContext from "../../context/valoresGlobais";
+export default function Home(){
     const [team, setTeam] = useState('');
     const [findTeam, setFindTeam] = useState(false);
     const [filteredItems, setFilteredItems] = useState([]);
-    const { setImgShirt, setShirtPrice } = props;
+    const { setImgShirt, setShirtPrice } = useContext(UserContext);
 
     function verifyTeam(){;
         if(team.length === 0){

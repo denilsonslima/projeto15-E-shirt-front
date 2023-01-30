@@ -14,6 +14,7 @@ import Product from './pages/home-product/Product.js'
 import Payment from "./pages/shoppingBag/payment";
 
 function App() {
+  const [user, setUser] = useState({})
   const [imgShirt, setImgShirt] = useState('');
   const [shirtPrice, setShirtPrice] = useState('');
   const [carrinhoTeste, setCarrinhoTeste] = useState([
@@ -23,32 +24,16 @@ function App() {
       number: true,
       price: 145.99,
       image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
-    },
-    {
-      product: "Camisa corintians Igor",
-      type: "sport",
-      number: true,
-      price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
-    },
-    {
-      product: "Camisa mengo Igor",
-      type: "sport",
-      number: true,
-      price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
-    },
-    {
-      product: "Camisa Fla Igor",
-      type: "sport",
-      number: true,
-      price: 145.99,
-      image: "https://i.pinimg.com/originals/28/45/a2/2845a23fe9e2d9f074b185866d813b05.png"
     }
-  ])
+  ]);
   return (
     <div className="App">
-      <UserContext.Provider value={{ carrinhoTeste, setCarrinhoTeste }}>
+      <UserContext.Provider value={{ 
+        user, setUser,
+        carrinhoTeste, setCarrinhoTeste, 
+        imgShirt, setImgShirt,
+        shirtPrice, setShirtPrice 
+        }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />}></Route>
@@ -60,19 +45,8 @@ function App() {
             <Route path="/qr-code" element={<Qrcode />}></Route>
             <Route path="/payment" element={<Payment/>}></Route>
             
-            <Route path = '/home' element = {
-              <Home 
-                setImgShirt = {setImgShirt} 
-                setShirtPrice = {setShirtPrice}
-              />} 
-            />
-
-            <Route path = '/product/:idShirt' element = {
-              <Product 
-                imgShirt = {imgShirt} 
-                shirtPrice = {shirtPrice}
-              />} 
-            />
+            <Route path = '/home' element = {<Home />} />
+            <Route path = '/product/:idShirt' element = {<Product />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

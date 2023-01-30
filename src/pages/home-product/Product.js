@@ -1,12 +1,15 @@
 import { Main, Content } from './constants/styled.js';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 //import { useParams } from "react-router-dom";
+import UserContext from '../../context/valoresGlobais.jsx';
 
-export default function Product(props){
+export default function Product(){
     const [size, setSize] = useState('');
     //const { idShirt } = useParams();
-    const { imgShirt, shirtPrice } = props;
+    const { imgShirt, shirtPrice } = useContext(UserContext);
+    console.log(imgShirt)
+    console.log(shirtPrice)
 
     return(
         <Main>
