@@ -10,15 +10,15 @@ export default function ShoppingBag() {
     const { carrinhoTeste, user } = useContext(UserContext);
     console.log(carrinhoTeste)
     const navigate = useNavigate();
-    async function purchase(){
-        try {
-            await axios.post(`${process.env.REACT_APP_API_URL}/payment`, carrinhoTeste, { headers: { Authorization: `Bearer ${user.token}` } })
-            .then((res) => alert(res.data))
-            navigate("/payment");
-        } catch (error) {
-            alert(error.response.data)
-        }
-    }
+//     async function purchase(){
+//         try {
+//             await axios.post(`${process.env.REACT_APP_API_URL}/payment`, carrinhoTeste, { headers: { Authorization: `Bearer ${user.token}` } })
+//             .then((res) => alert(res.data))
+//             navigate("/payment");
+//         } catch (error) {
+//             alert(error.response.data)
+//         }
+//     }
     return (
         <Main>
             <Header>
@@ -31,7 +31,7 @@ export default function ShoppingBag() {
             <PurchaseSummary>
                 <p>apresentar em letras pequenas valor total, valor de frete (se assim escolhido), desconto e o total.</p>
             </PurchaseSummary>
-            <Button onClick={() => purchase()}>IR PARA O PAGAMENTO</Button>
+            <Button onClick={() => navigate("/payment")}>IR PARA O PAGAMENTO</Button>
         </Main>
     )
 }
