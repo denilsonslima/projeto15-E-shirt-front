@@ -5,7 +5,7 @@ export default function Boleto() {
         <Main>
             <Header>
                 <h2>Pagamento</h2>
-                <i class="uil uil-ellipsis-h"></i>
+                <i className="uil uil-ellipsis-h"></i>
             </Header>
             <h3>Boleto bancário</h3>
             <p>Use o código para realizar o pagamento e após validado, enviaremos a confirmação da comprar para você!</p>

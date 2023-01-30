@@ -5,7 +5,7 @@ export default function Cartao() {
         <Main>
             <Header>
                 <h2>Pagamento</h2>
-                <i class="uil uil-ellipsis-h"></i>
+                <i className="uil uil-ellipsis-h"></i>
             </Header>
             <h3>Cartão de crédito</h3>
             <Form>

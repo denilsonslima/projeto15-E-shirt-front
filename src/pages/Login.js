@@ -1,12 +1,14 @@
 import axios from "axios"
-import { useState } from "react"
+import UserContext from "../context/valoresGlobais"
+import { useState, useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Main2, Title, Button, LinkTexto, Form } from "../assets/styles"
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { RotatingLines } from 'react-loader-spinner'
 import logo from "../assets/img/logo.png"
 
-export default function Login({setToken}) {
+export default function Login() {
+    const {setUser} = useContext(UserContext)
     const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",
@@ -26,10 +28,10 @@ export default function Login({setToken}) {
         e.preventDefault()
         try {
             setLoad(true)
-            const dados = await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
+            await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
+            .then((res) => setUser(res.data))
             setTimeout(() => {
-                setToken(dados.data.token)
-                navigate("/home")
+                navigate("/home");
             }, 500);
         } catch (error) {
             alert(error.response.data)
