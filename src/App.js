@@ -50,12 +50,13 @@ function App() {
       amount: 0
     }
   ])
+  const [token, setToken] = useState("")
   return (
     <div className="App">
       <UserContext.Provider value={{ carrinhoTeste, setCarrinhoTeste }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />}></Route>
+            <Route path="/" element={<Login setToken={setToken} />}></Route>
             <Route path="/cadastro" element={<SignUp />}></Route>
             <Route path="/shoppingBag" element={<ShoppingBag />}></Route>
             <Route path="/boleto" element={<Boleto />}></Route>
@@ -66,6 +67,7 @@ function App() {
             
             <Route path = '/home' element = {
               <Home 
+                token={token}
                 setImgShirt = {setImgShirt} 
                 setShirtPrice = {setShirtPrice}
               />} 

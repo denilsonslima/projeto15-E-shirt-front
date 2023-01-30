@@ -6,7 +6,7 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { RotatingLines } from 'react-loader-spinner'
 import logo from "../assets/img/logo.png"
 
-export default function Login() {
+export default function Login({setToken}) {
     const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",
@@ -26,8 +26,9 @@ export default function Login() {
         e.preventDefault()
         try {
             setLoad(true)
-            await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
+            const dados = await axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
             setTimeout(() => {
+                setToken(dados.data.token)
                 navigate("/home")
             }, 500);
         } catch (error) {
