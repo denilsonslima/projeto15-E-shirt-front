@@ -1,15 +1,24 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import { Button, Button2, Main } from '../../assets/styles.js';
 import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
 //import { useParams } from "react-router-dom";
+import UserContext from '../../context/valoresGlobais.jsx';
 
-export default function Product(props){
+export default function Product(){
     const [size, setSize] = useState('');
+    const navigate = useNavigate();
     //const { idShirt } = useParams();
-    const { imgShirt, shirtPrice } = props;
-    const navigate = useNavigate()
+    const { imgShirt, shirtPrice, carrinhoTeste, setCarrinhoTeste, dados } = useContext(UserContext);
 
+    function purchase(){
+        setCarrinhoTeste([dados.find((t)=> t.url === imgShirt)])
+        navigate("/payment")
+    }
+    function addShoppBag(){
+        setCarrinhoTeste([...carrinhoTeste, dados.find((t)=> t.url === imgShirt)])
+        navigate("/home")
+    }
     return(
         <Main>
             <Header>
@@ -38,8 +47,8 @@ export default function Product(props){
 
             </InfoBox>
 
-            <Button onClick={() => navigate("/payment")}>Comprar</Button>
-            <Button2>Adicionar a sacola</Button2>
+            <Button onClick={() => purchase()}>Comprar</Button>
+            <Button2 onClick={()=> addShoppBag()}>Adicionar a sacola</Button2>
         </Main>
     );
 }

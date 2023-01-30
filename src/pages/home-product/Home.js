@@ -8,24 +8,25 @@ import { SlMagnifier, SlMenu, SlArrowRight } from "react-icons/sl";
 import axios from 'axios';
 import { FiShoppingBag } from "react-icons/fi";
 
-export default function Home(props){
+import { useContext } from "react";
+import UserContext from "../../context/valoresGlobais";
+export default function Home(){
     const [team, setTeam] = useState('');
-    const [dados, setDados] = useState([])
+    
     const [findTeam, setFindTeam] = useState(false);
     const [filteredItems, setFilteredItems] = useState([]);
-    const { setImgShirt, setShirtPrice, token } = props;
-    const navigate = useNavigate()
-
+    const { setImgShirt, setShirtPrice, user, dados, setDados } = useContext(UserContext);
     useEffect(() => {
         const dados = async () => {
             const url = `${process.env.REACT_APP_API_URL}/product`
-            const dados = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } })
+            const dados = await axios.get(url, { headers: { Authorization: `Bearer ${user.token}` } })
+            console.log(dados)
             setDados([...dados.data])
         }
         dados()
 
-    }, [token])
-
+    }, [user])
+    
     function verifyTeam(){;
         if(team.length === 0){
             return alert("Pesquise um time ou seleção.");
